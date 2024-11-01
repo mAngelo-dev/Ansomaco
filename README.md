@@ -4,7 +4,7 @@ A modern React application integrated with WSO2 Identity Server for secure authe
 
 ## 🚀 Key Features
 
-- **Secure Authentication**: Implements SSO (Single Sign-On) using WSO2IS
+- **Secure Authentication**: Implements SSO (Single Sign-On) using WSO2IS 7.0.0
 - **VM Management**: Interface for creating, monitoring, and managing virtual machines
 - **Automated Workflow**: Streamlined process for VM provisioning
 - **React-based UI**: Modern, responsive user interface built with React 18
@@ -55,3 +55,13 @@ npm run dev
 
 # Build for production
 npm run build
+```
+
+### Environment Variables
+Create a `.env` file in the root directory with the following variables:
+```env
+VITE_CLIENT_ID=YOUR_CLIENT_ID
+VITE_SIGNIN_URL=YOUR_APP_SIGNIN_URL
+VITE_SIGNOUT_URL=YOUR_APP_SIGNOUT_URL
+VITE_BASE_URL=YOUR_WSO2IS_BASE_URL
+```
