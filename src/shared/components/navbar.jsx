@@ -1,5 +1,3 @@
-import {NavLink} from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import {useAuthContext} from "@asgardeo/auth-react";
 
 export default function Navbar() {
@@ -7,23 +5,71 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a
-           className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <div>
-            <img src="/tecnisys-logo-positivo.png" alt="logo" width={48} height={48}/>
+      <div className="position-fixed h-100" style={{width: '4.5rem', zIndex: 1030}}>
+        <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary h-100">
+          <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary h-100" style={{width: 4.5 + 'rem'}}>
+            <a href="#" className="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip"
+               data-bs-placement="right" data-bs-original-title="Icon-only">
+              <img src="/tecnisys-logo-positivo.png" width={42} height={42} alt={'logo'}/>
+              <span className="visually-hidden">Icon-only</span>
+            </a>
+            <hr className="mt-0 mb-0"/>
+
+            {/*Lista de Funções*/}
+            <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
+              <li className="nav-item">
+                <a href="/dashboard"
+                   className={`nav-link py-3 border-0 rounded-0 ${location.pathname === '/dashboard' ? 'bg-primary bg-gradient' : ''}`}
+                   aria-current="page"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   aria-label="Dashboard"
+                   data-bs-original-title="Dashboard">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black"
+                       className="bi bi-house" viewBox="0 0 16 16">
+                    <path
+                      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                  </svg>
+                </a>
+              </li>
+              <hr className="mt-0 mb-0"/>
+              <li>
+                <a href="/create"
+                   className={`nav-link py-3 border-0 rounded-0 ${location.pathname === '/create' ? 'bg-primary bg-gradient' : ''}`}
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   aria-label="Create"
+                   data-bs-original-title="Create">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black"
+                       className="bi bi-terminal-plus" viewBox="0 0 16 16">
+                    <path
+                      d="M2 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4a.5.5 0 0 1-1 0V4a1 1 0 0 0-1-1z"/>
+                    <path
+                      d="M3.146 5.146a.5.5 0 0 1 .708 0L5.177 6.47a.75.75 0 0 1 0 1.06L3.854 8.854a.5.5 0 1 1-.708-.708L4.293 7 3.146 5.854a.5.5 0 0 1 0-.708M5.5 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+
+            {/*Lista do Perfil*/}
+            <div className="dropdown border-top">
+              <a href="#"
+                 className="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" className="rounded-circle"/>
+              </a>
+              <ul className="dropdown-menu text-small shadow">
+                <li><a className="dropdown-item" href="/profile">Profile</a></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logout-modal">Sign out</a></li>
+              </ul>
+            </div>
           </div>
-          <span className="fs-4">Tecnisys VM Portal</span>
-        </a>
-
-        <ul className="nav nav-pills">
-          <li className="nav-item"><NavLink to={"/dashboard"} className={`nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`} aria-current="page">Dashboard</NavLink></li>
-          <li className="nav-item"><NavLink to={"/profile"} className={`nav-link ${location.pathname === '/profile' ? 'active' : ''}`}>Profile</NavLink></li>
-          <li className="nav-item"><NavLink to={"/create"} className={`nav-link ${location.pathname === '/create' ? 'active' : ''}`}>Create</NavLink></li>
-          <li className="nav-item"><a href={'#'} className={`nav-link`} data-bs-toggle="modal" data-bs-target="#logout-modal">Log out</a></li>
-        </ul>
-      </nav>
-
+        </div>
+      </div>
+      {/*Modal de Saída*/}
       <div className="modal fade" id="logout-modal" tabIndex="-1" aria-labelledby="logout-modal" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
