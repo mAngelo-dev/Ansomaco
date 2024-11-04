@@ -19,27 +19,28 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider config={authConfig}>
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path={"/"} element={<App />} />
-            <Route path={"/dashboard"} element={
+        <Routes>
+          <Route path="/" element={<App />} />
+
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
             } />
-            <Route path={"/profile"} element={
+            <Route path="/profile" element={
               <PrivateRoute>
                 <Profile />
               </PrivateRoute>
-              } />
-            <Route path={"/create"} element={
+            } />
+            <Route path="/create" element={
               <PrivateRoute>
                 <Create />
               </PrivateRoute>
             } />
-          </Routes>
-        </Layout>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </AuthProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
