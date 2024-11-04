@@ -7,8 +7,7 @@ export default function Navbar() {
     <>
       <div className="position-fixed h-100" style={{width: '4.5rem', zIndex: 1030}}>
         <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary h-100" style={{width: 4.5 + 'rem'}}>
-          <a href="#" className="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip"
-               data-bs-placement="right" data-bs-original-title="Icon-only">
+          <a href="#" className="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
             <img src="/tecnisys-logo-positivo.png" width={42} height={42} alt={'logo'}/>
             <span className="visually-hidden">Icon-only</span>
           </a>
@@ -18,23 +17,21 @@ export default function Navbar() {
           <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li className="nav-item">
               <a href="/dashboard"
-                   className={`nav-link py-3 border-0 rounded-0 ${location.pathname === '/dashboard' ? 'bg-primary bg-gradient' : ''}`}
+                   className={`nav-link py-3 rounded-0 ${location.pathname === '/dashboard' ? 'bg-primary bg-gradient border-black border-end border-3' : ''}`}
                    aria-current="page"
                    data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    aria-label="Dashboard"
                    data-bs-original-title="Dashboard">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black"
-                       className="bi bi-house" viewBox="0 0 16 16">
-                    <path
-                      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" className="bi bi-house" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                 </svg>
               </a>
             </li>
             <hr className="mt-0 mb-0"/>
             <li>
               <a href="/create"
-                   className={`nav-link py-3 border-0 rounded-0 ${location.pathname === '/create' ? 'bg-primary bg-gradient' : ''}`}
+                   className={`nav-link py-3 rounded-0 ${location.pathname === '/create' ? 'bg-primary bg-gradient border-black border-end border-3' : ''}`}
                    data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    aria-label="Create"
