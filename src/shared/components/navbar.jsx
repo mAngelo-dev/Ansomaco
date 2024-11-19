@@ -59,11 +59,11 @@ export default function Navbar() {
               </svg>
             </a>
             <ul className="dropdown-menu text-small shadow">
-              <li><a className="dropdown-item" href="/profile">Profile</a></li>
+              <li><a className="dropdown-item" href="/profile">Perfil</a></li>
               <li>
                 <hr className="dropdown-divider"/>
               </li>
-              <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logout-modal">Sign out</a></li>
+              <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logout-modal">Sair</a></li>
             </ul>
           </div>
         </div>
