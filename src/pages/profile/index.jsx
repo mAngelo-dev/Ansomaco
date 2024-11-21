@@ -1,9 +1,8 @@
-import { useAuthContext } from "@asgardeo/auth-react";
-import { useState, useEffect } from "react";
+import {useAuthContext} from "@asgardeo/auth-react";
+import {useEffect} from "react";
 
 export default function Profile() {
   const { state, getBasicUserInfo, getDecodedIDToken, getIDToken, getAccessToken } = useAuthContext();
-  const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
     async function fetchUserInfo() {
@@ -18,6 +17,7 @@ export default function Profile() {
           decodedIdToken,
           idToken,
           accessToken,
+          state
         };
 
         console.log("User Info:", payload);
@@ -27,15 +27,19 @@ export default function Profile() {
       }
     }
 
-    fetchUserInfo().then(r => setUserInfo(r));
-  }, [getAccessToken, getBasicUserInfo, getDecodedIDToken, getIDToken]);
-
+    fetchUserInfo().then(r => console.log(r));
+  }, [getAccessToken, getBasicUserInfo, getDecodedIDToken, getIDToken, state]);
+  
   return (
     <>
       <h1>Profile</h1>
-      <p>Username: {state.username}</p>
-      <p>Displayname: {state.displayName}</p>
-      <p>Email: {userInfo?.basicUserInfo?.email}</p>
+      {state.isAuthenticated ? (
+          <>
+            <p>Username: {state?.username}</p>
+            <p>Name: {state?.displayName}</p>
+            <p>Email: {state?.email}</p>
+          </>
+      ) : null}
     </>
   );
 }
