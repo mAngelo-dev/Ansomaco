@@ -1,4 +1,7 @@
+import {useAuthContext} from "@asgardeo/auth-react";
+
 export default function Dashboard() {
+  const {state} = useAuthContext();
 
   function getSaudation() {
     const hour = new Date().getHours();
@@ -14,7 +17,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <h1>{getSaudation()}</h1>
+      <h1>{getSaudation() + ',\n' + state?.displayName.split(' ')[0]}</h1>
     </>
   )
 }

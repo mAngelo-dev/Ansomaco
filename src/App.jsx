@@ -5,24 +5,26 @@ import PrivateRoute from "./utils/PrivateRoute.jsx";
 import Dashboard from "./pages/dashboard/index.jsx";
 import Profile from "./pages/profile/index.jsx";
 import Create from "./pages/create/index.jsx";
+import NotFound from "./pages/notfound/index.jsx";
 
 export default function App() {
   return (
   <Routes>
     <Route path="/" element={<Login />} />
+    <Route path="*" element={<NotFound />} />
 
     <Route element={<Layout />}>
-      <Route path="/dashboard" element={
+      <Route exact path="/dashboard" element={
         <PrivateRoute>
           <Dashboard />
         </PrivateRoute>
       } />
-      <Route path="/profile" element={
+      <Route exact path="/profile" element={
         <PrivateRoute>
           <Profile />
         </PrivateRoute>
       } />
-      <Route path="/create" element={
+      <Route exact path="/create" element={
         <PrivateRoute>
           <Create />
         </PrivateRoute>
